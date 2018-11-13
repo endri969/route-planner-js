@@ -15,7 +15,7 @@ const styles = theme =>({
       },
     paper:{
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'column',
         alignItems: 'baseline',
         margin: theme.spacing.unit,
         padding: theme.spacing.unit * 2,
@@ -32,8 +32,8 @@ class Place extends PureComponent {
     state = {
         place: '',
         
-      };
-    data  ={
+    };
+    data  = {
         order: 'asc',
         orderBy: 'place',
         selected: [],
@@ -45,7 +45,7 @@ class Place extends PureComponent {
         ],
         page: 0,
         rowsPerPage: 5,
-    }
+    };
 
     handleChange = name => event => {
         this.setState({
@@ -62,7 +62,7 @@ class Place extends PureComponent {
         return (
             <>
                 <Paper className={this.props.classes.paper}>
-                    <Grid item xs={4}>
+                    <Grid item xs={12}>
                         <TextField
                             id="standard-name"
                             label="Place"
@@ -70,6 +70,9 @@ class Place extends PureComponent {
                             onChange={this.handleChange('place')}
                             margin="normal"
                         />
+                        
+                    </Grid>
+                    <Grid item xs={12}>
                         <Button variant="outlined" color="primary" onClick={this.handleClick} ><AddLocationIcon/> Add Place</Button>
                     </Grid>
                 </Paper>
